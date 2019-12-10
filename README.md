@@ -1,7 +1,6 @@
 ---
 title: About
 layout: default
-date: 2019-12-01 12:00:00 +0100
 ---
 # AkkaPowerFramework
 
