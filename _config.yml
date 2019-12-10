@@ -1,1 +1,9 @@
 theme: jekyll-theme-leap-day
+title: AkkaPowerFramework
+author: Stelzi79
+description: > # this means to ignore newlines until "baseurl:"
+AkkaPowerFramework is a micro service framework that extense the C# .net port of the Akka Framework [Akka.net](https://getakka.net) to build highly concurrent, distributed and fault tolerant event-driven application.
+
+# social links
+twitter_username: Stelzi79
+github_username:  Stelzi79
