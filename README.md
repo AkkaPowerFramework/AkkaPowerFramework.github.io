@@ -46,4 +46,6 @@ The following framework Services are currently implemented (or are planed to be 
 
 ### Application and Service Lifecycle Services
 
+### EdgeServices
+
 ### Handling of Redundancy and Fail Over Management
