@@ -1,4 +1,6 @@
-# Architecture
+---
+Title: Overview
+---
 
 Every ```AkkaPowerApplication``` is build by independant AkkaPowerServices which are deployed on one or more ManagedNodes. ManagedNodes deploy AkkaPowerServices as configured by the ApplicationAuthority in there own Docker containers or on bare metal environments if there is no Docker support available or useful on this particular node. AkkaPowerServices care grouped by ServiceLocations to have them physically near each other in the same location for performance or redundancy reasons.
 

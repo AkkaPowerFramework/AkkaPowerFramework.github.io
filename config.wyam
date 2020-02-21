@@ -1,0 +1,9 @@
+#recipe Docs
+
+// Customize your settings and add new ones here
+Settings[Keys.Host] = "akka-pf.com";
+Settings[DocsKeys.Title] = "AkkaPowerFramework";
+Settings[Keys.CleanOutputPath] = true;
+
+
+// Add any pipeline customizations here

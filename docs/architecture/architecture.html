@@ -1,0 +1,229 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+        <meta name="description" />
+        <meta name="keywords" content="static content generator,static site generator,static site,HTML,web development,.NET,C#,Razor,Markdown,YAML" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="shortcut icon" href="/assets/img/favicon.ico" type="image/x-icon">
+        <link rel="icon" href="/assets/img/favicon.ico" type="image/x-icon">
+        <title>AkkaPowerFramework - Overview</title>
+        <link href="/assets/css/highlight.css" rel="stylesheet">
+        <link href="/assets/css/bootstrap/bootstrap.css" rel="stylesheet" />
+        <link href="/assets/css/adminlte/AdminLTE.css" rel="stylesheet" />
+        <link href="/assets/css/theme/theme.css" rel="stylesheet" />
+        <link href="//fonts.googleapis.com/css?family=Roboto+Mono:400,700|Roboto:400,400i,700,700i" rel="stylesheet">
+        <link href="/assets/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <link href="/assets/css/override.css" rel="stylesheet" />
+        <script src="/assets/js/jquery-2.2.3.min.js"></script>
+        <script src="/assets/js/bootstrap.min.js"></script>        
+        <script src="/assets/js/app.min.js"></script>         
+        <script src="/assets/js/highlight.pack.js"></script>   
+        <script src="/assets/js/jquery.slimscroll.min.js"></script>
+        <script src="/assets/js/jquery.sticky-kit.min.js"></script>
+        <script src="/assets/js/mermaid.min.js"></script>
+        <script src="/assets/js/svg-pan-zoom.min.js"></script>
+        <!--[if lt IE 9]>
+        <script src="/assets/js/html5shiv.min.js"></script>
+        <script src="/assets/js/respond.min.js"></script>
+        <![endif]-->  
+
+        
+    </head>
+    <body class="hold-transition wyam layout-boxed  ">    
+        <div class="top-banner"></div>
+        <div class="wrapper with-container">
+            <!-- Header -->
+            <header class="main-header">   
+                     
+                <a href="/" class="logo">
+                            <span>AkkaPowerFramework</span>
+                </a>   
+                         
+                <nav class="navbar navbar-static-top" role="navigation">
+                    <!-- Sidebar toggle button-->
+                        <a href="#" class="sidebar-toggle visible-xs-block" data-toggle="offcanvas" role="button">
+                            <span class="sr-only">Toggle side menu</span>
+                            <i class="fa fa-chevron-circle-right"></i>
+                        </a>
+                                        
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+                            <span class="sr-only">Toggle side menu</span>
+                            <i class="fa fa-chevron-circle-down"></i>
+                        </button>
+                    </div>
+            
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse pull-left" id="navbar-collapse">
+                        <ul class="nav navbar-nav">                            
+                                    <li><a href="/README">About</a></li>
+        <li class="active"><a href="/architecture">Architecture</a></li>
+        <li><a href="/docs">Docs</a></li>
+        <li><a href="/blog">Blog</a></li>
+ 
+                        </ul>       
+                    </div>
+                    <!-- /.navbar-collapse -->
+                
+                    <!-- Navbar Right Menu -->
+                </nav>
+            </header>
+            
+            <!-- Left side column. contains the logo and sidebar -->
+            <aside class="main-sidebar ">
+                <section class="infobar" data-spy="affix" data-offset-top="60" data-offset-bottom="200"> 
+                    	
+    <div id="infobar-headings"></div>
+
+                </section>
+                <section class="sidebar">    
+                                     
+                    
+
+                    <ul class="sidebar-menu">
+                        
+
+                <li class="selected"><a href="/architecture/architecture">Overview</a></li>
+
+                    </ul>
+                            
+                </section>                
+            </aside>
+            
+            <!-- Content Wrapper. Contains page content -->
+            <div class="content-wrapper">
+                
+
+
+
+		<section class="content-header">
+			<h1>Overview</h1>
+		</section>
+	<section class="content">
+		<p>Every <code>AkkaPowerApplication</code> is build by independant AkkaPowerServices which are deployed on one or more ManagedNodes. ManagedNodes deploy AkkaPowerServices as configured by the ApplicationAuthority in there own Docker containers or on bare metal environments if there is no Docker support available or useful on this particular node. AkkaPowerServices care grouped by ServiceLocations to have them physically near each other in the same location for performance or redundancy reasons.</p>
+<h2 id="managednode">ManagedNode</h2>
+<p>This is the smallest physical infrastructure unit of the framework. There are two different kind of ManagedNodes.</p>
+<ol>
+<li><p><strong>DockerHost</strong>: The most common and recommended type of node is the Docker host node. This Node configures and runs Docker containers that contain ServiceLocations in them.</p>
+</li>
+<li><p><strong>BareMetal</strong>: If a Node doesn't possess the capability to be a Docker host or if there is the need for an EdgeUI like WPF, WinForms or any other service that lacks vital capabilities inside a Docker container then you can use the <code>ManagedNode</code> type to configure and run ServiceLocations.</p>
+</li>
+</ol>
+<p>All Nodes acquire the necessary information on how to configure, service and run the ServiceLocations from the <code>ApplicationConfig</code> service.</p>
+<h2 id="akkapowerapplication">AkkaPowerApplication</h2>
+<p>A created application as a whole with all its services is called an <code>AkkaPowerApplication</code>.</p>
+<h2 id="akkapowerservice">AkkaPowerService</h2>
+<p>This is the smallest logical unit of the framework. It is comprised from one or more Akka.net PowerActors that provide something useful for the application and other AkkaPowerServices to consume.</p>
+<p>The AkkaPowerService has to properly supervise any of it PowerActors it defines and must notify the ServiceLocation if it is not able to continue handle messages properly.</p>
+<h2 id="servicelocation">ServiceLocation</h2>
+<p>A ServiceLocation has one or more AkkaPowerServices in it. This can group different AkkaPowerServices together to conserve resources or have them logically near each other. ServiceLocation can be completely configured as need be. It is advised in production environments to not have every AkkaPowerService in one singular ServiceLocation. As a default there is one <code>FrameworkServices</code> and one <code>ApplicationServices</code> ServiceLocation setup when creating a new AkkaPowerApplication. Redundancy and fail over capabilities are enabled by duplicating ServiceLocations.</p>
+<h2 id="applicationauthority">ApplicationAuthority</h2>
+<p>It basically bootstraps the whole application and discovers for a ServiceLocation some basic framework services it needs to function properly. Every ServiceLocation only needs the location where it can find the ApplicationAuthority, for it to discover all the requisits for its AkkaPowerServices to function properly.</p>
+<p>There can be and for redundancy in production environments should be more than one ApplicationAuthority in an AkkaPowerApplication.</p>
+<h2 id="configuration-handling">Configuration Handling</h2>
+<p>If a PowerActor from AkkaPowerService needs access to or wants to define a configuration value, it requests a subscription to it from the application wide <code>ApplicationConfig</code> services. A configuration value has by default restrictions to its read or write access. If an AkkaPowerService wants access to a configuration value, the access has to be explicitly granted when enabling such a AkkaPowerService on enabling it.</p>
+<p>Any AkkaPowerService can define one or more configuration values. By default any defined configuration value is protected from any other AkkaPowerService than the defining one to read or write.</p>
+<p>A defined configuration value can only be mutated by the defining AkkaPowerService. At every possible mutation of the configuration value the defining AkkaPowerService must make sure that in only contains valid values. Any mutation to a configuration value is broadcast to any AkkaPowerService that consumes that configuration value.</p>
+<p>The defining AkkaPowerService can explicitly define that the configuration value can be requested by other AkkaPowerServices. It also can enable a built in way to get requests for changes of a configuration value it defines.</p>
+<p>A discovered configuration value is cached on a ServiceLocation basis. By default any AkkaPowerService is notified by the ServiceLocation when it receives a such a notification of mutation from the <code>ApplicationConfig</code> service.</p>
+<h2 id="service-discovery">Service Discovery</h2>
+<p>By default defined PowerActors in a AkkaPowerService may only handle and send messages to other PowerActors in there own service. An AkkaPowerService has to explicitly define which messages it is willing to handle from other AkkaPowerServices and PowerActors. The AkkaPowerService must forward such explicitly defined public messages to its appropriate PowerActors when appropriate.</p>
+<p>Any AkkaPowerService that wants a message handled by some AkkaPowerService outside its service boundary has to ask the <code>ServiceDiscovery</code> service for a subscription of AkkaPowerServices that are willing to handle that message. Any changes to which AkkaPowerService is willing to handle a certain message right now is similarly broadcast to any possible consumer AkkaPowerService as configuration is handled.</p>
+<p>Every discovered AkkaPowerService that is willing to handle certain messages for other services is cached on a ServiceLocation basis. The ServiceLocation forwards such change to its AkkaPowerServices.</p>
+<h2 id="application-and-service-lifecycle-events">Application and Service Lifecycle events</h2>
+<p>In addition to what Akka.net provides for handling lifecycle events every AkkaPowerService can define there custom Lifecycle events.</p>
+<p>By default these events are only available inside the AkkaPowerService. A AkkaPowerService can make these Lifecycle events available to other services by explicitly define these as subscribable for other services. Subscription and discovering of Lifecycle events are handled in a similar fashion than Service Discovery.</p>
+<p>When a Lifecycle event occurs the defining Service notifies every Service that has subscribed to this event.</p>
+<p>For Lifecycle events that are raised by framework components see [insert page link]</p>
+<h2 id="edgeservices">EdgeServices</h2>
+<p>One of the sub optimal things about Akka.net is that it currently has no default built in way to interact to the outside of the ActorSystem.</p>
+
+	</section>
+                
+            </div>           
+            
+            <!-- Footer -->
+            <footer class="main-footer">
+            </footer>
+            
+        </div>
+        <div class="wrapper bottom-wrapper">
+            <footer class="bottom-footer">
+                Generated by <a href="https://wyam.io">Wyam</a>
+            </footer>
+        </div>
+        <a href="javascript:" id="return-to-top"><i class="fa fa-chevron-up"></i></a>
+        
+        <script>           
+            // Close the sidebar if we select an anchor link
+            $(".main-sidebar a[href^='#']:not('.expand')").click(function(){
+                $(document.body).removeClass('sidebar-open');
+            });
+            
+            $(document).ready(function() {
+                mermaid.initialize(
+                {
+                    flowchart:
+                    {
+                        useMaxWidth: false
+                    },
+					startOnLoad: false,
+					cloneCssStyles: false
+                });     
+                mermaid.init(undefined, ".mermaid");
+
+                // Remove the max-width setting that Mermaid sets
+                var mermaidSvg = $('.mermaid svg');
+                mermaidSvg.addClass('img-responsive');
+                mermaidSvg.css('max-width', '');
+
+                // Make it scrollable
+				var target = document.querySelector(".mermaid svg");
+				if(target !== null)
+				{
+					var panZoom = window.panZoom = svgPanZoom(target, {
+						zoomEnabled: true,
+						controlIconsEnabled: true,
+						fit: true,
+						center: true,
+                        maxZoom: 20,
+                        zoomScaleSensitivity: 0.6
+					});			                          
+
+                    // Do the reset once right away to fit the diagram
+                    panZoom.resize();
+                    panZoom.fit();
+                    panZoom.center();
+                    
+                    $(window).resize(function(){
+                        panZoom.resize();
+                        panZoom.fit();
+                        panZoom.center();
+                    });
+				}
+                
+                $('pre code').each(function(i, block) {
+                    hljs.highlightBlock(block);
+                });  
+            });
+
+            hljs.initHighlightingOnLoad();
+
+            // Back to top
+            $(window).scroll(function() {
+                if ($(this).scrollTop() >= 200) {        // If page is scrolled more than 50px
+                    $('#return-to-top').fadeIn(1000);    // Fade in the arrow
+                } else {
+                    $('#return-to-top').fadeOut(1000);   // Else fade out the arrow
+                }
+            });
+            $('#return-to-top').click(function() {      // When arrow is clicked
+                $('body,html').animate({
+                    scrollTop : 0                       // Scroll to top of body
+                }, 500);
+            });
+        </script>
+    </body>
+</html>
