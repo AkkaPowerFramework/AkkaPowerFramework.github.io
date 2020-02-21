@@ -1,3 +1,7 @@
+---
+Title: About
+---
+
 # AkkaPowerFramework
 
 AkkaPowerFramework is a micro service framework that extense the C# .net port of the Akka Framework [Akka.net](https://getakka.net) to build highly concurrent, distributed, fault tolerant and event-driven application of micro services.
@@ -22,7 +26,7 @@ We also have the goal to make the transition of single a node Akka.net applicati
 
 Every ```AkkaPowerApplication``` is build by independant ```AkkaPowerService```s which are deployed on one or more ```ManagedNode```s. ```ManagedNode```s deploy ```AkkaPowerService```s as configured by the ```ApplicationAuthority``` in there own Docker containers or on bare metal environments if there is no Docker support available or useful on this particular node. ```AkkaPowerService```s can be grouped by ```SharedServiceLocation```s to have them physically near each other in the same container for performance reasons.
 
-[Detailed Architecture](architecture/architecture.md)
+[Detailed Architecture](architecture/architecture)
 
 ## Provided Framework Services
 

@@ -1,0 +1,224 @@
+﻿<!DOCTYPE html><html><head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+        <meta name="description">
+        <meta name="keywords" content="static content generator,static site generator,static site,HTML,web development,.NET,C#,Razor,Markdown,YAML">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="shortcut icon" href="/assets/img/favicon.ico" type="image/x-icon">
+        <link rel="icon" href="/assets/img/favicon.ico" type="image/x-icon">
+        <title>AkkaPowerFramework - About</title>
+        <link href="/assets/css/highlight.css" rel="stylesheet">
+        <link href="/assets/css/bootstrap/bootstrap.css" rel="stylesheet">
+        <link href="/assets/css/adminlte/AdminLTE.css" rel="stylesheet">
+        <link href="/assets/css/theme/theme.css" rel="stylesheet">
+        <link href="//fonts.googleapis.com/css?family=Roboto+Mono:400,700|Roboto:400,400i,700,700i" rel="stylesheet">
+        <link href="/assets/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <link href="/assets/css/override.css" rel="stylesheet">
+        <script src="/assets/js/jquery-2.2.3.min.js"></script>
+        <script src="/assets/js/bootstrap.min.js"></script>        
+        <script src="/assets/js/app.min.js"></script>         
+        <script src="/assets/js/highlight.pack.js"></script>   
+        <script src="/assets/js/jquery.slimscroll.min.js"></script>
+        <script src="/assets/js/jquery.sticky-kit.min.js"></script>
+        <script src="/assets/js/mermaid.min.js"></script>
+        <script src="/assets/js/svg-pan-zoom.min.js"></script>
+        <!--[if lt IE 9]>
+        <script src="/assets/js/html5shiv.min.js"></script>
+        <script src="/assets/js/respond.min.js"></script>
+        <![endif]-->  
+
+        
+    </head>
+    <body class="hold-transition wyam layout-boxed layout-top-nav ">    
+        <div class="top-banner"></div>
+        <div class="wrapper with-container">
+            <!-- Header -->
+            <header class="main-header">   
+                     
+                <a href="/" class="logo">
+                            <span>AkkaPowerFramework</span>
+                </a>   
+                         
+                <nav class="navbar navbar-static-top" role="navigation">
+                    <!-- Sidebar toggle button-->
+                                        
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+                            <span class="sr-only">Toggle side menu</span>
+                            <i class="fa fa-chevron-circle-down"></i>
+                        </button>
+                    </div>
+            
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse pull-left" id="navbar-collapse">
+                        <ul class="nav navbar-nav">                            
+                                    <li class="active"><a href="/README">About</a></li>
+        <li><a href="/architecture">Architecture</a></li>
+        <li><a href="/docs">Docs</a></li>
+        <li><a href="/blog">Blog</a></li>
+ 
+                        </ul>       
+                    </div>
+                    <!-- /.navbar-collapse -->
+                
+                    <!-- Navbar Right Menu -->
+                </nav>
+            </header>
+            
+            <!-- Left side column. contains the logo and sidebar -->
+            <aside class="main-sidebar hidden">
+                <section class="infobar" data-spy="affix" data-offset-top="60" data-offset-bottom="200"> 
+                    	
+    <div id="infobar-headings"><h6>On This Page</h6><p><a href="#akkapowerframework">AkkaPowerFramework</a></p>
+<hr class="infobar-hidden">
+</div>
+
+                </section>
+                <section class="sidebar">    
+                                     
+                    
+
+                    <ul class="sidebar-menu">
+                        
+
+                    </ul>
+                            
+                </section>                
+            </aside>
+            
+            <!-- Content Wrapper. Contains page content -->
+            <div class="content-wrapper">
+                
+
+
+
+		<section class="content-header">
+			<h1>About</h1>
+		</section>
+	<section class="content">
+		<h1 id="akkapowerframework">AkkaPowerFramework</h1>
+<p>AkkaPowerFramework is a micro service framework that extense the C# .net port of the Akka Framework <a href="https://getakka.net">Akka.net</a> to build highly concurrent, distributed, fault tolerant and event-driven application of micro services.</p>
+<p>Some of the useful services for micro service application like authenticating nodes and services, service discovering, persistance solutions, central configurations handling and handling of redundancy and fail over management are implemented but can also easily be extended and/or replaced by custom solutions.</p>
+<p>The framework strives to deliver these basic micro service needs as easy and hassle free as it can with best practices in mind by using the cluster capabilities of <a href="https://getakka.net">Akka.net</a>. Our goal is that the developer of an <code>AkkaPowerApplication</code> has only to concern himself with writing <code>AkkaPowerService</code>s with Actors of Akka and the rest is handled by the framework. An intervention or customization of how to build, deploy or run a micro service application is possible in situation where there is a special need for.</p>
+<p>We also have the goal to make the transition of single a node Akka.net application to an <code>AkkaPowerApplication</code> as easy and hassle free as it possibly makes sense.</p>
+<h2 id="builds">Builds</h2>
+<table class="table">
+<thead>
+<tr>
+<th>Part/Service/Build</th>
+<th>Badge</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ManagedNode</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="managednode-deployments">ManagedNode deployments</h3>
+<p><img src="https://vsrm.dev.azure.com/Stelzi79/_apis/public/Release/badge/318a0b9d-3d9a-4175-8e0a-ccc7bf37d064/1/2" class="img-fluid" alt="https://vsrm.dev.azure.com/Stelzi79/_apis/public/Release/badge/318a0b9d-3d9a-4175-8e0a-ccc7bf37d064/1/2"></p>
+<h2 id="architecture">Architecture</h2>
+<p>Every <code>AkkaPowerApplication</code> is build by independant <code>AkkaPowerService</code>s which are deployed on one or more <code>ManagedNode</code>s. <code>ManagedNode</code>s deploy <code>AkkaPowerService</code>s as configured by the <code>ApplicationAuthority</code> in there own Docker containers or on bare metal environments if there is no Docker support available or useful on this particular node. <code>AkkaPowerService</code>s can be grouped by <code>SharedServiceLocation</code>s to have them physically near each other in the same container for performance reasons.</p>
+<p><a href="architecture/architecture">Detailed Architecture</a></p>
+<h2 id="provided-framework-services">Provided Framework Services</h2>
+<p>The following framework Services are currently implemented (or are planed to be included) and can easily be extended and/or replaced by custom solutions if there is a need for.</p>
+<h3 id="authenticating-nodes-and-services">Authenticating Nodes and Services</h3>
+<p><code>ApplicationAuthority</code>: This service defines the Application identity, bootstrapps the application and delegates some basic capability to the providing services of the application. It is the central authority of the application that composes and defines everything.</p>
+<h3 id="central-configurations-handling">Central Configurations Handling</h3>
+<p><code>ApplicationConfig</code></p>
+<h3 id="service-discovery">Service Discovery</h3>
+<p><code>ServiceDiscovery</code></p>
+<h3 id="persistance-solutions">Persistance Solutions</h3>
+<h3 id="extendibility">Extendibility</h3>
+<h3 id="application-and-service-lifecycle-services">Application and Service Lifecycle Services</h3>
+<h3 id="edgeservices">EdgeServices</h3>
+<h3 id="handling-of-redundancy-and-fail-over-management">Handling of Redundancy and Fail Over Management</h3>
+
+	</section>
+                
+            </div>           
+            
+            <!-- Footer -->
+            <footer class="main-footer">
+            </footer>
+            
+        </div>
+        <div class="wrapper bottom-wrapper">
+            <footer class="bottom-footer">
+                Generated by <a href="https://wyam.io">Wyam</a>
+            </footer>
+        </div>
+        <a href="javascript:" id="return-to-top"><i class="fa fa-chevron-up"></i></a>
+        
+        <script>           
+            // Close the sidebar if we select an anchor link
+            $(".main-sidebar a[href^='#']:not('.expand')").click(function(){
+                $(document.body).removeClass('sidebar-open');
+            });
+            
+            $(document).ready(function() {
+                mermaid.initialize(
+                {
+                    flowchart:
+                    {
+                        useMaxWidth: false
+                    },
+					startOnLoad: false,
+					cloneCssStyles: false
+                });     
+                mermaid.init(undefined, ".mermaid");
+
+                // Remove the max-width setting that Mermaid sets
+                var mermaidSvg = $('.mermaid svg');
+                mermaidSvg.addClass('img-responsive');
+                mermaidSvg.css('max-width', '');
+
+                // Make it scrollable
+				var target = document.querySelector(".mermaid svg");
+				if(target !== null)
+				{
+					var panZoom = window.panZoom = svgPanZoom(target, {
+						zoomEnabled: true,
+						controlIconsEnabled: true,
+						fit: true,
+						center: true,
+                        maxZoom: 20,
+                        zoomScaleSensitivity: 0.6
+					});			                          
+
+                    // Do the reset once right away to fit the diagram
+                    panZoom.resize();
+                    panZoom.fit();
+                    panZoom.center();
+                    
+                    $(window).resize(function(){
+                        panZoom.resize();
+                        panZoom.fit();
+                        panZoom.center();
+                    });
+				}
+                
+                $('pre code').each(function(i, block) {
+                    hljs.highlightBlock(block);
+                });  
+            });
+
+            hljs.initHighlightingOnLoad();
+
+            // Back to top
+            $(window).scroll(function() {
+                if ($(this).scrollTop() >= 200) {        // If page is scrolled more than 50px
+                    $('#return-to-top').fadeIn(1000);    // Fade in the arrow
+                } else {
+                    $('#return-to-top').fadeOut(1000);   // Else fade out the arrow
+                }
+            });
+            $('#return-to-top').click(function() {      // When arrow is clicked
+                $('body,html').animate({
+                    scrollTop : 0                       // Scroll to top of body
+                }, 500);
+            });
+        </script>
+    
+</body></html>

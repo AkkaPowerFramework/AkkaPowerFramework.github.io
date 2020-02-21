@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+	<id>http://akka-pf.com/</id>
+	<title>AkkaPowerFramework</title>
+	<link rel="self" href="http://akka-pf.com/" />
+	<rights>2020</rights>
+	<updated>2020-02-21T20:32:53Z</updated>
+	<entry>
+		<id>http://akka-pf.com/blog/new-release</id>
+		<title>New Release</title>
+		<author>
+			<name>me</name>
+		</author>
+		<link href="http://akka-pf.com/blog/new-release" />
+		<updated>2016-01-01T00:00:00Z</updated>
+		<content>&lt;p&gt;There is a new release out, go get it now.&lt;/p&gt;
+</content>
+		<summary>&lt;p&gt;There is a new release out, go get it now.&lt;/p&gt;</summary>
+	</entry>
+</feed>
